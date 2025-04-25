@@ -1,10 +1,22 @@
 @import "tailwindcss";
 
+/* Light theme variables (default) */
 :root {
-  --background: #ffffff;
+  --background: #f0f0f0;
   --foreground: #171717;
+  --body-bg: var(--background); /* Add more theme variables if needed */
+  --body-text: var(--foreground);
 }
 
+/* Dark theme overrides (based on class, not system preference) */
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --body-bg: var(--background);
+  --body-text: var(--foreground);
+}
+
+/* Font and utility variables */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -12,16 +24,24 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Global element styling using variables */
+body {
+  background: var(--body-bg);
+  color: var(--body-text);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
 
+/* Text muted class for light/dark mode */
+.text-muted {
+  color: #6b7280;
+}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Dark mode styles */
+.dark .text-muted {
+  color: #9ca3af;
+}
+
+/* Optional: Add transitions for smooth theme switching */
+html, body {
+  transition: background-color 0.3s ease, color 0.3s ease;
 }

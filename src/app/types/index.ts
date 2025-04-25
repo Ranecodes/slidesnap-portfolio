@@ -4,7 +4,8 @@ export type SlideCategory = 'All' | 'Corporate' | 'Creative' | 'Educational';
 export interface SlideItem {
   id: string;
   title: string;
-  category: Exclude<SlideCategory, 'All'>;
+  categories: Exclude<SlideCategory, 'All'>[];
   slideCount: number;
   thumbnailUrl: string;
+  slidesUrl: string;
 }

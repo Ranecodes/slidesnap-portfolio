@@ -5,7 +5,7 @@ import Contact from "./components/Contact";
 
 export default function Home() {
   return (
-    <div className="min-h-screen  pb-20 gap-16 font-[family-name:var(--font-geist-sans)]">
+    <div className="min-h-screen pb-20 gap-16 font-[family-name:var(--font-geist-sans)]">
       {/* Hero Section */}
       <section id="home" className="">
         <Hero /> {/* Add Hero component here */}

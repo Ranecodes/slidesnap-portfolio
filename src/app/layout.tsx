@@ -1,3 +1,4 @@
+import { ThemeProvider } from "next-themes";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Navbar from "./components/Navbar";
@@ -26,11 +27,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} __variable_4d318d __variable_ea5f4b antialiased`}
       >
-        <Navbar />
-        {children}
+        <ThemeProvider attribute="class" enableSystem={true}>
+          <Navbar />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
 }
+

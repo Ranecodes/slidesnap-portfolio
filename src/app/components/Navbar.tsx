@@ -2,6 +2,7 @@
 "use client";
 
 import React, { useState } from "react";
+import ThemeToggle from "./ThemeToggle";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -29,46 +30,55 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="bg-white shadow-sm p-4">
+      <nav className="shadow-sm dark:shadow-gray-800 p-4">
         <div className="container mx-auto flex justify-between items-center">
-          <div className="text-gray-800 font-bold text-xl">SlideSnap</div>
-          <ul className="hidden md:flex space-x-6">
-            <li>
-              <a
-                href="#home"
-                onClick={handleSmoothScroll}
-                className="text-gray-600 hover:text-blue-600 transition-colors"
-              >
-                Home
-              </a>
-            </li>
-            <li>
-              <a
-                href="#gallery"
-                onClick={handleSmoothScroll}
-                className="text-gray-600 hover:text-blue-600 transition-colors"
-              >
-                Gallery
-              </a>
-            </li>
-            <li>
-              <a
-                href="#contact"
-                onClick={handleSmoothScroll}
-                className="text-gray-600 hover:text-blue-600 transition-colors"
-              >
-                Contact
-              </a>
-            </li>
-          </ul>
+          <div className=" font-bold text-xl">SlideSnap</div>
+          <div className="hidden md:flex items-center space-x-4">
+            <ul className="hidden md:flex space-x-6">
+              <li>
+                <a
+                  href="#home"
+                  onClick={handleSmoothScroll}
+                  className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                >
+                  Home
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#gallery"
+                  onClick={handleSmoothScroll}
+                  className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                >
+                  Gallery
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#contact"
+                  onClick={handleSmoothScroll}
+                  className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                >
+                  Contact
+                </a>
+              </li>
+            </ul>
 
-          {/* Hamburger Menu Button */}
-          <button
-            className="md:hidden text-gray-600 focus:outline-none"
-            onClick={toggleMenu}
-            aria-label="Toggle menu"
-          >
-            {isMenuOpen ? (
+             {/* Theme Toggle */}
+          <div className="hidden md:block">
+            <ThemeToggle />
+          </div>
+          </div>
+
+         
+        </div>
+
+        {/* Mobile Menu Button and Theme Toggle*/}
+        <div className="md:hidden flex items-center space-x-2 absolute top-4 right-4">
+          <ThemeToggle />
+
+          <button className="text-gray-600 dark:text-gray-300 focus:outline-none" onClick={toggleMenu} aria-label="Toggle menu">
+          {isMenuOpen ? (
               // X icon when menu is open
               <svg
                 className="w-6 h-6"
@@ -105,12 +115,12 @@ const Navbar = () => {
         {/* Mobile Menu Dropdown */}
         {isMenuOpen && (
           <div className="md:hidden">
-            <ul className="pt-2 pb-3 space-y-1 bg-white">
+            <ul className="pt-2 pb-3 space-y-1 ">
               <li>
                 <a
                   href="#home"
                   onClick={handleSmoothScroll}
-                  className="block py-2 px-4 text-gray-600 hover:bg-gray-50"
+                  className="block py-2 px-4  hover:bg-gray-50 dark:hover:bg-gray-700"
                 >
                   Home
                 </a>
@@ -119,7 +129,7 @@ const Navbar = () => {
                 <a
                   href="#gallery"
                   onClick={handleSmoothScroll}
-                  className="block py-2 px-4 text-gray-600 hover:bg-gray-50"
+                  className="block py-2 px-4  hover:bg-gray-50 dark:hover:bg-gray-700"
                 >
                   Gallery
                 </a>
@@ -128,7 +138,7 @@ const Navbar = () => {
                 <a
                   href="#contact"
                   onClick={handleSmoothScroll}
-                  className="block py-2 px-4 text-gray-600 hover:bg-gray-50"
+                  className="block py-2 px-4  hover:bg-gray-50 dark:hover:bg-gray-700"
                 >
                   Contact
                 </a>

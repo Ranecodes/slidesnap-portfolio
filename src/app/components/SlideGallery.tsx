@@ -12,13 +12,13 @@ const SlideGallery = () => {
 
   const filteredSlides = activeCategory === 'All' 
     ? slideData 
-    : slideData.filter(slide => slide.category === activeCategory);
+    : slideData.filter(slide => slide.categories.includes(activeCategory));
 
   return (
-    <section id="gallery" className="py-16 bg-gray-50">
+    <section id="gallery" className="py-16">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
-          <h2 className="text-3xl font-bold text-gray-800 mb-4 md:mb-0">My Slide Decks</h2>
+          <h2 className="text-3xl font-bold mb-4 md:mb-0">My Slide Decks</h2>
           <FilterTabs 
             activeCategory={activeCategory} 
             onCategoryChange={setActiveCategory} 
