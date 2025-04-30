@@ -32,14 +32,15 @@ const Navbar = () => {
     <>
       <nav className="shadow-sm dark:shadow-gray-800 p-4">
         <div className="container mx-auto flex justify-between items-center">
-          <div className=" font-bold text-xl">SlideSnap</div>
+          <div className=" font-bold text-xl">Ranehobasi</div>
           <div className="hidden md:flex items-center space-x-4">
             <ul className="hidden md:flex space-x-6">
               <li>
                 <a
                   href="#home"
                   onClick={handleSmoothScroll}
-                  className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  className="transition-colors"
+                  style={{color: 'var(--nav-text)'}}
                 >
                   Home
                 </a>
@@ -48,7 +49,8 @@ const Navbar = () => {
                 <a
                   href="#gallery"
                   onClick={handleSmoothScroll}
-                  className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  className="  transition-colors"
+                  style={{color: 'var(--nav-text)'}}
                 >
                   Gallery
                 </a>
@@ -57,7 +59,8 @@ const Navbar = () => {
                 <a
                   href="#contact"
                   onClick={handleSmoothScroll}
-                  className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  className="transition-colors"
+                  style={{color: 'var(--nav-text)'}}
                 >
                   Contact
                 </a>

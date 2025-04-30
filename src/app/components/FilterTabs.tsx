@@ -20,7 +20,7 @@ const FilterTabs: React.FC<FilterTabsProps> = ({ activeCategory, onCategoryChang
           onClick={() => onCategoryChange(category)}
           className={`px-4 py-2 rounded-full text-sm transition-colors ${
             activeCategory === category
-              ? 'bg-blue-600 text-white'
+              ? 'bg-black text-white'
               : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
           }`}
         >

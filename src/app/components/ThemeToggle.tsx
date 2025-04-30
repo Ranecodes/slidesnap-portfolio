@@ -14,8 +14,9 @@ const ThemeToggle = () => {
   return (
     <button
       onClick={toggleTheme}
-      className="p-2 rounded-full bg-gray-100 dark:bg-gray-700 transition-colors cursor-pointer"
+      className="p-2 rounded-full  transition-colors cursor-pointer"
       aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+      style={{backgroundColor: 'var(--toggle-bg)'}}
     >
       {theme === 'light' ? (
         // Moon icon for dark mode

@@ -2,18 +2,30 @@
 
 /* Light theme variables (default) */
 :root {
-  --background: #f0f0f0;
+  --background: #ffffff;
   --foreground: #171717;
   --body-bg: var(--background); /* Add more theme variables if needed */
   --body-text: var(--foreground);
+  --card-background: #ffffff;
+  --btn-color: #171717;
+  --btn-text: #ffffff;
+  --bd-text: #171717;
+  --nav-text: #4a5565;
+  --toggle-bg: #f3f4f6;
+  --slide-animation-duration: 12s; /* Animation cycle duration */
 }
 
 /* Dark theme overrides (based on class, not system preference) */
 .dark {
   --background: #0a0a0a;
-  --foreground: #ededed;
+  --foreground: #ffffff;
   --body-bg: var(--background);
   --body-text: var(--foreground);
+  --card-background: #808080;
+  --btn-color: #ffffff;
+  --btn-text: #171717;
+  --nav-text: #ffffff;
+  --toggle-bg:#171717;
 }
 
 /* Font and utility variables */
@@ -44,4 +56,85 @@ body {
 /* Optional: Add transitions for smooth theme switching */
 html, body {
   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hero Section Image Animation Styles */
+/* Add these animations to your globals.css */
+
+/* Fade-in animation for text content */
+.fade-in {
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Slide-in animation for laptop */
+.slide-in-right {
+  animation: slideInRight 1s ease-out forwards;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Laptop hover effect */
+.laptop-container {
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.laptop-hover {
+  transform: scale(1.05) translateY(-10px);
+}
+
+/* Laptop screen styling */
+.laptop-screen {
+  background: #111;
+  border-radius: 2px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Slideshow fade transitions */
+.slide-transition {
+  transition: opacity 1s ease-in-out;
+}
+
+/* Add a subtle glow effect on hover */
+.laptop-hover::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 20px;
+  background: radial-gradient(ellipse at center, rgba(var(--btn-color-rgb), 0.3) 0%, rgba(0,0,0,0) 70%);
+  border-radius: 50%;
+  filter: blur(5px);
+  z-index: 5;
+  transition: opacity 0.5s ease;
+}
+
+/* Button hover animation */
+a[href="#gallery"] {
+  transition: all 0.3s ease;
+}
+
+a[href="#gallery"]:hover {
+  box-shadow: 0 4px 12px rgba(var(--btn-color-rgb), 0.3);
 }

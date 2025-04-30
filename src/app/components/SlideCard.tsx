@@ -2,32 +2,76 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 import { SlideItem } from '../types';
 
 interface SlideCardProps {
   slide: SlideItem;
 }
 
-const SlideCard: React.FC<SlideCardProps> = ({ slide }) => {
+const SlideCard = ({ slide }: SlideCardProps) => {
+  // Card hover animation
+  const cardVariants = {
+    hover: { 
+      y: -10,
+      transition: {
+        duration: 0.3,
+        ease: "easeOut"
+      }
+    }
+  };
+
   return (
-    <div className="bg-white rounded-lg shadow-sm border border-none overflow-hidden transition-transform hover:shadow-md hover:scale-[1.02]">
-      <Link href={slide.slidesUrl} key={slide.id} target="_blank" rel="noopener noreferrer"> 
-      <div className="relative h-48 w-full">
-        <Image
-          src={slide.thumbnailUrl}
-          alt={slide.title}
-          fill
-          className="object-cover"
-        />
+    <motion.div 
+      className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg"
+      whileHover="hover"
+      variants={cardVariants}
+    >
+      {/* Thumbnail with hover zoom effect */}
+      <div className="relative h-48 overflow-hidden">
+        <motion.div
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.3 }}
+        >
+          <Image
+            src={slide.thumbnailUrl}
+            alt={slide.title}
+            className="w-full h-full object-cover"
+            width={400}
+            height={250}
+          />
+        </motion.div>
       </div>
+      
+      {/* Card Content */}
       <div className="p-4">
-        <h3 className="font-semibold text-gray-800 text-lg">{slide.title}</h3>
-        <p className="text-gray-500 text-sm mt-1">
-          {slide.categories.join(', ')} • {slide.slideCount} slides
-        </p>
+        <h3 className="text-xl font-bold mb-2">{slide.title}</h3>
+        <p className="text-gray-600 dark:text-gray-300 mb-4">{slide.categories.join(', ')} • {slide.slideCount} slides</p>
+        
+        {/* Categories */}
+        <div className="flex flex-wrap gap-2 mb-4">
+          {slide.categories.map(category => (
+            <span 
+              key={category} 
+              className="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm"
+            >
+              {category}
+            </span>
+          ))}
+        </div>
+        
+        {/* View Button */}
+        <Link href={`/slides/${slide.id}`} className="block">
+          <motion.button 
+            className="w-full py-2 bg-black dark:bg-white text-white dark:text-black font-medium rounded hover:opacity-90 transition-opacity"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            View Deck
+          </motion.button>
+        </Link>
       </div>
-      </Link>
-    </div>
+    </motion.div>
   );
 };
 
