@@ -45,7 +45,7 @@ const SlideCard = ({ slide }: SlideCardProps) => {
       
       {/* Card Content */}
       <div className="p-4">
-        <h3 className="text-xl font-bold mb-2">{slide.title}</h3>
+        <h3 className="text-xl font-bold mb-2" style={{color: 'var(--no-change-text)'}}>{slide.title}</h3>
         <p className="text-gray-600 dark:text-gray-300 mb-4">{slide.categories.join(', ')} • {slide.slideCount} slides</p>
         
         {/* Categories */}
@@ -53,7 +53,7 @@ const SlideCard = ({ slide }: SlideCardProps) => {
           {slide.categories.map(category => (
             <span 
               key={category} 
-              className="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm"
+              className="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm active-tab"
             >
               {category}
             </span>
@@ -63,7 +63,7 @@ const SlideCard = ({ slide }: SlideCardProps) => {
         {/* View Button */}
         <Link href={`/slides/${slide.id}`} className="block">
           <motion.button 
-            className="w-full py-2 bg-black dark:bg-white text-white dark:text-black font-medium rounded hover:opacity-90 transition-opacity"
+            className="w-full py-2 bg-black dark:bg-white text-white dark:text-black font-medium rounded hover:opacity-90 transition-opacity cursor-pointer"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.98 }}
           >

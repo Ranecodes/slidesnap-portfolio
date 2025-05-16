@@ -1,19 +1,20 @@
 // /app/components/SlideGallery.tsx
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { slideData } from '../data/slides';
-import { SlideCategory, SlideItem } from '../types';
-import FilterTabs from './FilterTabs';
-import SlideCard from './SlideCard';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { slideData } from "../data/slides";
+import { SlideCategory, SlideItem } from "../types";
+import FilterTabs from "./FilterTabs";
+import SlideCard from "./SlideCard";
 
 const SlideGallery = () => {
-  const [activeCategory, setActiveCategory] = useState<SlideCategory>('All');
+  const [activeCategory, setActiveCategory] = useState<SlideCategory>("All");
 
-  const filteredSlides = activeCategory === 'All' 
-    ? slideData 
-    : slideData.filter(slide => slide.categories.includes(activeCategory));
+  const filteredSlides =
+    activeCategory === "All"
+      ? slideData
+      : slideData.filter((slide) => slide.categories.includes(activeCategory));
 
   // Animation variants
   const containerVariants = {
@@ -21,46 +22,49 @@ const SlideGallery = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1
-      }
-    }
+        staggerChildren: 0.1,
+      },
+    },
   };
 
   const headerVariants = {
     hidden: { opacity: 0, y: -20 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
-      transition: { 
+      transition: {
         duration: 0.6,
-        ease: "easeOut"
-      }
-    }
+        ease: "easeOut",
+      },
+    },
   };
 
   return (
-    <motion.section 
-      id="gallery" 
+    <motion.section
+      id="gallery"
       className="py-16"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
     >
       <div className="container mx-auto px-4">
-        <motion.div 
+        <motion.div
           className="flex flex-col md:flex-row md:items-center md:justify-between mb-8"
           variants={headerVariants}
         >
           <h2 className="text-3xl font-bold mb-4 md:mb-0">My Slide Decks</h2>
-          <FilterTabs 
-            activeCategory={activeCategory} 
-            onCategoryChange={setActiveCategory} 
+          <FilterTabs
+            activeCategory={activeCategory}
+            onCategoryChange={setActiveCategory}
           />
         </motion.div>
-        
-        <motion.div 
+
+        <motion.div
+          key={activeCategory} // <-- force re-render on filter change
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
           variants={containerVariants}
+          initial="hidden"
+          animate="visible"
         >
           {filteredSlides.map((slide, index) => (
             <AnimatedSlideCard key={slide.id} slide={slide} index={index} />
@@ -73,7 +77,7 @@ const SlideGallery = () => {
 
 // Wrapper component to animate each card
 interface AnimatedSlideCardProps {
-  slide: SlideItem; 
+  slide: SlideItem;
   index: number;
 }
 
@@ -86,15 +90,17 @@ const AnimatedSlideCard = ({ slide, index }: AnimatedSlideCardProps) => {
       transition: {
         delay: i * 0.05,
         duration: 0.5,
-        ease: "easeOut"
-      }
-    })
+        ease: "easeOut",
+      },
+    }),
   };
 
   return (
     <motion.div
       variants={itemVariants}
       custom={index}
+      initial="hidden"
+      animate="visible"
     >
       <SlideCard slide={slide} />
     </motion.div>

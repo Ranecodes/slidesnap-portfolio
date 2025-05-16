@@ -30,7 +30,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="shadow-sm dark:shadow-gray-800 p-4">
+      <nav className=" p-4">
         <div className="container mx-auto flex justify-between items-center">
           <div className=" font-bold text-xl">Ranehobasi</div>
           <div className="hidden md:flex items-center space-x-4">

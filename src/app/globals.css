@@ -9,6 +9,7 @@
   --card-background: #ffffff;
   --btn-color: #171717;
   --btn-text: #ffffff;
+  --no-change-text:#171717;
   --bd-text: #171717;
   --nav-text: #4a5565;
   --toggle-bg: #f3f4f6;
@@ -21,7 +22,7 @@
   --foreground: #ffffff;
   --body-bg: var(--background);
   --body-text: var(--foreground);
-  --card-background: #808080;
+  --card-background: #171717;
   --btn-color: #ffffff;
   --btn-text: #171717;
   --nav-text: #ffffff;
@@ -137,4 +138,40 @@ a[href="#gallery"] {
 
 a[href="#gallery"]:hover {
   box-shadow: 0 4px 12px rgba(var(--btn-color-rgb), 0.3);
+}
+
+/* Active tab - light mode */
+.active-tab {
+  background-color: var(--btn-color);    /* dark background */
+  color: var(--btn-text);                /* light text */
+  border: 2px solid var(--btn-text);     /* visible white border */
+}
+
+/* Inactive tab - light mode */
+.inactive-tab {
+  background-color: #f3f4f6;
+  color: #4b5563;
+  border: 2px solid transparent;         /* keep layout consistent */
+}
+
+.inactive-tab:hover {
+  background-color: #e5e7eb;
+}
+
+/* Active tab - dark mode */
+.dark .active-tab {
+  background-color: var(--btn-text);     /* light background */
+  color: var(--btn-color);               /* dark text */
+  border: 2px solid var(--btn-color);    /* visible dark border */
+}
+
+/* Inactive tab - dark mode */
+.dark .inactive-tab {
+  background-color: #1f2937;
+  color: #d1d5db;
+  border: 2px solid transparent;
+}
+
+.dark .inactive-tab:hover {
+  background-color: #374151;
 }
