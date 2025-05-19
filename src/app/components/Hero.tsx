@@ -125,23 +125,23 @@ const Hero = () => {
             className="text-4xl md:text-5xl font-bold text-[var(--body-text)] mb-4"
             variants={childVariants}
           >
-            Hi, I am Ranehobasi
+            Hi, I&apos;m Ranehobasi
           </motion.h1>
 
           <motion.h2
             className="text-xl md:text-2xl text-[var(--body-text)] mb-6"
             variants={childVariants}
           >
-            Frontend Developer &amp; Presentation Designer
+            Frontend Developer &amp; Visual Storyteller
           </motion.h2>
 
-          <motion.p
+          <motion.h3
             className="text-[var(--body-text)] max-w-lg mb-8"
             variants={childVariants}
           >
-            Creating captivating slides that tell your story with clarity and
-            style
-          </motion.p>
+            Presentations that are not just beautiful, but strategically effective.
+          </motion.h3 >
+          
 
           <motion.a
             href="#gallery"

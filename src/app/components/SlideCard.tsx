@@ -61,7 +61,7 @@ const SlideCard = ({ slide }: SlideCardProps) => {
         </div>
         
         {/* View Button */}
-        <Link href={`/slides/${slide.id}`} className="block">
+        <Link href={slide.slidesUrl} target='_blank' className="block">
           <motion.button 
             className="w-full py-2 bg-black dark:bg-white text-white dark:text-black font-medium rounded hover:opacity-90 transition-opacity cursor-pointer"
             whileHover={{ scale: 1.03 }}

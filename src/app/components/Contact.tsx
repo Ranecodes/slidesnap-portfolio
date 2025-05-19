@@ -1,8 +1,28 @@
 // src/app/components/Contact.tsx
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 
 const Contact = () => {
+  const [copyStatus, setCopyStatus] = useState("");
+  const emailAddress = "ranehobasi@gmail.com";
+
+  const handleCopyEmail = () => {
+    navigator.clipboard
+      .writeText(emailAddress)
+      .then(() => {
+        setCopyStatus("Email copied!");
+        console.log("Email copied to clipboard");
+
+        // Clear the status message after 2 seconds
+        setTimeout(() => {
+          setCopyStatus("");
+        }, 2000);
+      })
+      .catch((err) => {
+        console.error("Failed to copy: ", err);
+        setCopyStatus("Copy failed. Please try again.");
+      });
+  };
   return (
     <section className=" py-20">
       <div className="container mx-auto px-4">
@@ -44,11 +64,11 @@ const Contact = () => {
                 Email Me
               </h3>
               <Link
-                href="mailto:ranehobasi@example.com"
+                href="mailto:ranehobasi@gmail.com"
                 className="text-black transition-colors hover-glow"
                 style={{ color: "var(--bd-text)" }}
               >
-                ranehobasi@example.com
+                ranehobasi@gmail.com
               </Link>
             </div>
 
@@ -133,17 +153,23 @@ const Contact = () => {
             </div>
           </div>
 
-          <div className="flex justify-center">
-            <Link
-              href="mailto:ranehobasi@example.com"
-              className=" text-white px-8 py-4 rounded-md text-lg font-semibold transition-colors shadow-lg"
+          <div className="flex flex-col items-center">
+            <button
+              onClick={handleCopyEmail}
+              className="text-white px-8 py-4 rounded-md text-lg font-semibold social-icon transition-colors shadow-lg cursor-pointer"
               style={{
                 backgroundColor: "var(--btn-color)",
                 color: "var(--btn-text)",
               }}
             >
               Get In Touch
-            </Link>
+            </button>
+
+            {copyStatus && (
+              <div className="mt-2 text-sm font-medium text-green-600">
+                {copyStatus}
+              </div>
+            )}
           </div>
         </div>
       </div>
