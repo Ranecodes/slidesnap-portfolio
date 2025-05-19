@@ -54,7 +54,7 @@ export default function Home() {
         variants={sectionVariants}
       >
         <p className="text-sm text-gray-600 dark:text-gray-400">
-          &copy; 2025 SlideSnap Portfolio. All rights reserved.
+        &copy; 2025 Designed & Built by Ranehobasi
         </p>
       </motion.footer>
     </div>
