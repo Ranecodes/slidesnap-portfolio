@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "SlideSnap Portfolio",
+  title: "Ranehobasi | Frontend Developer & Visual Storyteller",
   description: "A porftfolio showcasing the slide presentations.",
 };
 
