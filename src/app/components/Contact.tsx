@@ -36,7 +36,7 @@ const Contact = () => {
 
           <div className="flex flex-col md:flex-row items-center justify-center gap-8 mb-12">
             <div
-              className="p-6 rounded-lg text-center w-full md:w-60 hover-lift"
+              className="p-6 rounded-lg text-center w-full md:w-60 hover-lift cursor-pointer"
               style={{
                 backgroundColor: "var(--card-background)",
                 boxShadow: "var(--card-shadow)",
@@ -63,13 +63,13 @@ const Contact = () => {
               >
                 Email Me
               </h3>
-              <Link
-                href="mailto:ranehobasi@gmail.com"
+              <div
+                onClick={handleCopyEmail}
                 className="text-black transition-colors hover-glow"
                 style={{ color: "var(--bd-text)" }}
               >
                 ranehobasi@gmail.com
-              </Link>
+              </div>
             </div>
 
             <div
@@ -154,8 +154,8 @@ const Contact = () => {
           </div>
 
           <div className="flex flex-col items-center">
-            <button
-              onClick={handleCopyEmail}
+            <Link
+              href={`mailto:${'ranehobasi@gmail.com'}`}
               className="text-white px-8 py-4 rounded-md text-lg font-semibold social-icon transition-colors shadow-lg cursor-pointer"
               style={{
                 backgroundColor: "var(--btn-color)",
@@ -163,7 +163,7 @@ const Contact = () => {
               }}
             >
               Get In Touch
-            </button>
+            </Link>
 
             {copyStatus && (
               <div className="mt-2 text-sm font-medium text-green-600">
