@@ -7,6 +7,7 @@
   --body-bg: var(--background); /* Add more theme variables if needed */
   --body-text: var(--foreground);
   --card-background: #ffffff;
+  --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   --btn-color: #171717;
   --btn-text: #ffffff;
   --no-change-text:#171717;
@@ -14,6 +15,9 @@
   --nav-text: #4a5565;
   --toggle-bg: #f3f4f6;
   --slide-animation-duration: 12s; /* Animation cycle duration */
+  --card-hover-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+  --link-hover-color: #0066cc;
+  --social-hover-color: #0066cc;
 }
 
 /* Dark theme overrides (based on class, not system preference) */
@@ -22,11 +26,16 @@
   --foreground: #ffffff;
   --body-bg: var(--background);
   --body-text: var(--foreground);
-  --card-background: #171717;
+  --card-background: #0a0a0a;
+  --card-shadow: 0 10px 30px rgb(32, 32, 32), 0 2px 8px rgba(255, 255, 255, 0.155), 0 0 1px rgba(255, 255, 255, 0.15);
+  --bd-text: #ffffff;
   --btn-color: #ffffff;
   --btn-text: #171717;
   --nav-text: #ffffff;
   --toggle-bg:#171717;
+  --card-hover-shadow: 0 15px 40px rgb(32, 32, 32), 0 5px 15px rgba(255, 255, 255, 0.2), 0 0 2px rgba(255, 255, 255, 0.2);
+  --link-hover-color: #4da6ff;
+  --social-hover-color: #4da6ff;
 }
 
 /* Font and utility variables */
@@ -174,4 +183,40 @@ a[href="#gallery"]:hover {
 
 .dark .inactive-tab:hover {
   background-color: #374151;
+}
+
+.dark-shadow {
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
+}
+
+/* CONTACT ME CARDS */
+
+/* Card hover effect */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--card-hover-shadow);
+}
+
+/* Link hover effect */
+.hover-glow {
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.hover-glow:hover {
+  color: var(--link-hover-color);
+  transform: scale(1.1);
+}
+
+/* Social icon hover effect */
+.social-icon {
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.social-icon:hover {
+  transform: translateY(-3px);
+  color: var(--social-hover-color);
 }
