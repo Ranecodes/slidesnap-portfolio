@@ -179,7 +179,7 @@ const Hero = () => {
             >
               {/* Laptop base image */}
               <Image
-                src="/Macbook.png"
+                src="/macbook.png"
                 alt="Laptop Mockup"
                 fill
                 className="object-contain z-10"
