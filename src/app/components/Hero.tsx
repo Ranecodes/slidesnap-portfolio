@@ -178,6 +178,7 @@ const Hero = () => {
               }}
             >
               {/* Laptop base image */}
+              {/* Mockup name changed */}
               <Image
                 src="/macbook.png"
                 alt="Laptop Mockup"
