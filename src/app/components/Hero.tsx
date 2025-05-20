@@ -8,19 +8,16 @@ const Hero = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [isPlaying, setIsPlaying] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     // Trigger animations after component mounts
     setIsLoaded(true);
 
-    // Check if we're on mobile
+    // Check if we're on mobile only after component mounts (client-side)
     const handleResize = () => {
-      if (window.innerWidth <= 768 && videoRef.current) {
-        // On mobile, we might want to pause the video initially to save bandwidth
-        // videoRef.current.pause();
-        // setIsPlaying(false);
-      }
+      setIsMobile(window.innerWidth <= 768);
     };
 
     // Call once on mount
@@ -231,14 +228,13 @@ const Hero = () => {
                         onPause={() => {
                           setIsPlaying(false);
                         }}
-                        poster="/video-poster.jpg" // Add a poster image for better mobile experience
                       >
                         <source src="/mockup-video.mp4" type="video/mp4" />
                         Your browser does not support the video tag.
                       </video>
 
                       {/* Play/Pause button overlay - mobile-friendly version */}
-                      {(isHovered || window.innerWidth <= 768) && (
+                      {(isHovered || isMobile) && (
                         <div 
                           className="absolute inset-0 flex items-center justify-center"
                           style={{ backgroundColor: 'rgba(0,0,0,0.1)' }}
