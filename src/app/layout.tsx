@@ -17,6 +17,28 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Ranehobasi | Frontend Developer & Visual Storyteller",
   description: "A porftfolio showcasing the slide presentations.",
+  openGraph: {
+    title: "Ranehobasi | Frontend Developer & Visual Storyteller",
+    description: "A porftolio showcasing the slide presentations.",
+    url: "https://ranehobasi.com",
+    siteName: "Ranehobasi",
+    images: [
+      {
+        url: "/metapage.png",
+        width: 1200,
+        height: 630,
+        alt: "Ranehobasi | Frontend Developer & Visual Storyteller",
+      },
+    ],
+    locale: "en-US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ranehobasi | Frontend Developer & Visual Storyteller",
+    description: "A porftolio showcasing the slide presentations.",
+    images: ["/metapage.png"],
+  },
 };
 
 export default function RootLayout({
