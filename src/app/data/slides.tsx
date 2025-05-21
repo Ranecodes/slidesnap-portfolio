@@ -55,7 +55,7 @@ export const slideData: SlideItem[] = [
       title: 'Marketing Strategy',
       categories: ['Creative', 'Corporate'],
       slideCount: 18,
-      thumbnailUrl: '/marketing-plan-presentation.png',
+      thumbnailUrl: '/marketing.png',
       slidesUrl:'https://www.canva.com/design/DAGP5bSoHbM/xQQHwh2iOs_zZ3T6JGPYow/edit?utm_content=DAGP5bSoHbM&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton',
     },
     {
